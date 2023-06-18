@@ -8,10 +8,6 @@ export default class Server {
         this.port = process.env.SERVER_PORT;
     }
 
-    async get(req, res) {
-        return res.send("Hello word").status(200);
-    }
-
     async post(req, res) {
         const body = req.body;
         if (!body) {
@@ -102,7 +98,6 @@ export default class Server {
     init() {
         this.app.use(express.urlencoded({ extended: true }));
         this.app.use(express.json());
-        this.app.use("/", (req, res) => this.get(req, res));
         this.app.post("/photo", (req, res) => this.post(req, res));
         this.app.listen(this.port, () => {
             console.log(`${colors.fg.cyan}[INFO]${colors.reset} - Servidor online na porta 0.0.0.0:${this.port}!`);
