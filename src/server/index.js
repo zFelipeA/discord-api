@@ -19,12 +19,17 @@ export default class Server {
             return res.send("Informe um titulo válido").status(400);
         }
 
+        const channelID = body[0].channel;
+        if (!channelID) {
+            return res.send("Informe um channel válido").status(400);
+        }
+
         const image = body[0].image;
         if (!image) {
             return res.send("Informe uma imagem válida").status(400);
         }
 
-        const channel = this.core.modules.bot.channels.cache.get("1120089724422463608");
+        const channel = this.core.modules.bot.channels.cache.get(channelID);
         const embed = new this.core.modules.bot.embed()
             .setTitle("DETECTED CHEAT/EXPLOIT")
             .setDescription("We have just identified a Player using a hack on the server and a record has been applied to him.")
