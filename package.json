@@ -5,7 +5,7 @@
     "private": true,
     "main": "./src/index.js",
     "engines": {
-        "node": "14x"
+        "node": "18.x"
     },
     "scripts": {
         "start": "node ./src/index.js"
