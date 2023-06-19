@@ -1,7 +1,7 @@
 import express from "express";
 import { colors } from "../utils/debug.js";
 
-export default class Server {
+export default class Router {
     constructor(core) {
         this.core = core;
         this.app = express();
